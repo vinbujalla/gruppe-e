@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {StudentListComponent} from "./test-list/test-list/student-list.component";
-import {StudentFormComponent} from "./test-form/test-form/student-form.component";
-import {StudentSearchComponent} from "./test-search/student-search.component";
+import {UserListComponent} from "./test-list/test-list/user-list.component";
+import {UserFormComponent} from "./test-form/test-form/user-form.component";
+import {UserSearchComponent} from "./test-search/user-search.component";
 
 const routes: Routes = [
-  {path:'students',component:StudentListComponent},
-  {path:'addstudent',component:StudentFormComponent},
-  {path:'searchstudent',component:StudentSearchComponent}
+  {path:'users',component:UserListComponent},
+  {path:'adduser',component:UserFormComponent},
+  {path:'searchusers',component:UserSearchComponent}
 ];
 
 @NgModule({

@@ -5,21 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SEPHeaderComponent } from './sepheader/sepheader.component';
 import { SepbottomComponent } from './sepbottom/sepbottom.component';
-import { StudentFormComponent } from './test-form/test-form/student-form.component';
+import { UserFormComponent } from './test-form/test-form/user-form.component';
 import {FormsModule} from "@angular/forms";
-import { StudentListComponent } from './test-list/test-list/student-list.component';
+import { UserListComponent } from './test-list/test-list/user-list.component';
 import {HttpClientModule} from "@angular/common/http";
-import {StudentServiceService} from "./Service/student-service.service";
-import { StudentSearchComponent } from './test-search/student-search.component';
+import {UserServiceService} from "./Service/user-service.service";
+import { UserSearchComponent } from './test-search/user-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SEPHeaderComponent,
     SepbottomComponent,
-    StudentFormComponent,
-    StudentListComponent,
-    StudentSearchComponent
+    UserFormComponent,
+    UserListComponent,
+    UserSearchComponent
   ],
     imports: [
         BrowserModule,
@@ -27,7 +27,7 @@ import { StudentSearchComponent } from './test-search/student-search.component';
         HttpClientModule,
         FormsModule
     ],
-  providers: [StudentServiceService],
+  providers: [UserServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,19 +6,17 @@
         <th scope="col">#</th>
         <th scope="col">Vorname</th>
         <th scope="col">Nachname</th>
-        <th scope="col">Fach</th>
         <th scope="col">Email</th>
         <th scope="col"></th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let student of students">
-        <td>{{ student.id }}</td>
-        <td>{{ student.firstName }}</td>
-        <td>{{ student.lastName }}</td>
-        <td>{{ student.subject }}</td>
-        <td><a href="mailto:{{ student.email }}">{{ student.email }}</a></td>
-        <td><button (click)="deleteStudent(student)" class="deletButton">Löschen</button></td>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+        <td><button (click)="deleteStudent(user)" class="deletButton">Löschen</button></td>
       </tr>
       </tbody>
     </table>
