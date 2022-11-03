@@ -1,0 +1,32 @@
+<div class="search-tag-result">
+  <label for="searchInput">Suchen nach</label>
+  <select name="searchType" [(ngModel)]="searchType" id="searchType" >
+    <option value="lastName" [defaultSelected]="searchInput">Nachname</option>
+    <option value="firstName">Vorname</option>
+    <option value="email">E-Mail</option>
+  </select>
+  <input name="searchInput" [(ngModel)]="searchInput" id="searchInput" placeholder="Suchbegriff" type="text">
+  <button name="searchButton" (click)="submitSearch(searchInput)">Suche</button>
+</div>
+<div>
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Vorname</th>
+      <th scope="col">Nachname</th>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
