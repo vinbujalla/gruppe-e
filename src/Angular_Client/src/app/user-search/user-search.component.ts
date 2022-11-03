@@ -4,8 +4,8 @@ import {UserServiceService} from "../Service/user-service.service";
 
 @Component({
   selector: 'app-user-search',
-  templateUrl: './test-search.component.html',
-  styleUrls: ['./test-search.component.scss']
+  templateUrl: './user-search.component.html',
+  styleUrls: [`./user-search.component.scss`]
 })
 export class UserSearchComponent{
   users: User[]|undefined;

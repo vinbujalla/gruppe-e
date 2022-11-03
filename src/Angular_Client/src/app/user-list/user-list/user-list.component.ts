@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import {Student} from "../../Model/user";
-import {StudentServiceService} from "../../Service/user-service.service";
+import {User} from "../../Model/user";
+import {UserServiceService} from "../../Service/user-service.service";
 import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
-  selector: 'app-student-list',
+  selector: 'app-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
 
-  students: Student[]|undefined;
+  users: User[]|undefined;
 
-  constructor(private studentService:StudentServiceService,
+  constructor(private userService:UserServiceService,
               private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit(): void
   {
-    this.studentService.findAll().subscribe(data=>{this.students=data});
+    this.userService.findAll().subscribe(data=>{this.users=data});
   }
 
-  deleteStudent(student:Student)
+  deleteUser(user:User)
   {
-    this.studentService.delete(student);
+    this.userService.delete(user);
     window.location.reload();
   }
 
