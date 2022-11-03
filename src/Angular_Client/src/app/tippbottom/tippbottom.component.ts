@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-sepbottom',
+  selector: 'app-tippbottom',
   templateUrl: './tippbottom.component.html',
   styleUrls: ['./tippbottom.component.scss']
 })

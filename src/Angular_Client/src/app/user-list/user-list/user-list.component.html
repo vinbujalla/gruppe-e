@@ -11,12 +11,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let user of User">
+      <tr *ngFor="let user of users">
         <td>{{ user.id }}</td>
         <td>{{ user.firstName }}</td>
         <td>{{ user.lastName }}</td>
         <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
-        <td><button (click)="deleteStudent(user)" class="deletButton">Löschen</button></td>
+        <td><button (click)="deleteUser(user)" class="deletButton">Löschen</button></td>
       </tr>
       </tbody>
     </table>
