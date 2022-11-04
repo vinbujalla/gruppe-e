@@ -1,39 +1,49 @@
-<div class="card my-5">
-  <div class="card-body">
-    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
-      <div class="form-group">
-        <label for="firstname">Vor Name</label>
-        <input type="text" [(ngModel)]="user.firstName"
-               class="form-control"
-               id="firstname"
-               name="firstname"
-               placeholder="Vorname"
-               required #firstname="ngModel">
-      </div>
-      <div [hidden]="!firstname.pristine" class="alert alert-danger">Vorname eingeben!</div>
-      <div class="form-group">
-        <label for="lastname">Nachname</label>
-        <input type="text" [(ngModel)]="user.lastName"
-               class="form-control"
-               id="lastname"
-               name="lastname"
-               placeholder="Nachname"
-               required #lastname="ngModel">
-        <div [hidden]="!lastname.pristine" class="alert alert-danger">Nachname eingeben!</div>
-      </div>
 
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" [(ngModel)]="user.email"
-               class="form-control"
-               id="email"
-               name="email"
-               placeholder="Enter your email address"
-               required #email="ngModel">
-        <div [hidden]="!email.pristine" class="alert alert-danger">Email eingeben!</div>
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Account erstellen</h2>
+
+              <form>
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example1cg">Dein Vorname</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example3cg">Deine E-Mail</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cg">Passwort</label>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" id="form3Example4cdg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cdg">Passwort wiederholen</label>
+                </div>
+
+
+                <div class="d-flex justify-content-center">
+                  <button type="button"
+                          class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Registrieren</button>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Du hast bereits einen Account? <a href="http://localhost:4200"
+                                                                                        class="fw-bold text-body"><u>Hier anmelden</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
       </div>
-      <button type="submit" [disabled]="!userForm.form.valid"
-              class="btn btn-info">Submit</button>
-    </form>
+    </div>
   </div>
-</div>
+
