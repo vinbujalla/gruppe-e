@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Angular_Client';
+  title = 'Melden Sie sich mit Ihrem Account an.                          ' +
+    'Falls Sie keinen Account haben, können Sie sich registrieren.';
 }

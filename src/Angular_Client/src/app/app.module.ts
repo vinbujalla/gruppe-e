@@ -11,6 +11,7 @@ import { UserListComponent } from './user-list/user-list/user-list.component';
 import {HttpClientModule} from "@angular/common/http";
 import {UserServiceService} from "./Service/user-service.service";
 import { UserSearchComponent } from './user-search/user-search.component';
+import { LogInFensterComponent } from './log-in-fenster/log-in-fenster.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { UserSearchComponent } from './user-search/user-search.component';
     UserFormComponent,
     UserListComponent,
     UserSearchComponent,
+    LogInFensterComponent,
 
   ],
     imports: [
