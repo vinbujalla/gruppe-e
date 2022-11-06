@@ -14,6 +14,7 @@ import { UserSearchComponent } from './user-search/user-search.component';
 import { LogInFensterComponent } from './log-in-fenster/log-in-fenster.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +24,8 @@ import { LogInFensterComponent } from './log-in-fenster/log-in-fenster.component
     UserListComponent,
     UserSearchComponent,
     LogInFensterComponent,
+
+
 
   ],
     imports: [

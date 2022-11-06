@@ -30,15 +30,28 @@
 
 
   button{
+    &:first-child {
+      bottom:0;
+
+      right: 50px;
+      margin-bottom: 50px;
+
+
+    }
+    &:last-child{
+    bottom:0;
+      right: 50px;
+      margin-bottom: 50px;
+
+    }
 
     &:hover{
       background-color: lightgray;
     }
+
     background-color: white;
     width: 30%;
     position: absolute;
-    margin-left: 370px;
-    margin-top: 320px;
     height: 32px;
     border: 2px solid rgba(0,0,0,1);
     border-radius: 20px;

@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogInFensterComponent implements OnInit {
 
+  getVal(){
+    console.warn
+  }
   constructor() { }
 
   ngOnInit(): void {
