@@ -1,7 +1,22 @@
 
 <div class="card">
   <img src="assets/login.png">
-  <p>Bitte tragen sie ihre E-Mail und ihr Passwort in die entsprechenden Zeilen ein. </p>
+  <h1 type ="title">Log-In </h1>
+
+  <fieldset>
+
+    <div>
+
+      <input  type="radio" id="User" name="drone" value="User"
+             checked >
+      <label style=font-size:25px; for="User">User  </label>
+    </div>
+    <div>
+      <input type="radio" id="Admin" name="drone" value="Admin">
+      <label style=font-size:25px; for="Admin">Admin</label>
+    </div>
+  </fieldset>
+
   <p>  </p>
   <p>E-Mail</p>
   <input type="email"/>
@@ -9,7 +24,10 @@
   <input type="password"/>
   <button>Bestätigen</button>
   <p></p><p></p><p></p><p></p>
-  <p>Falls Sie keinen Account besitzen, müssen Sie sich zuerst <a href="http://localhost:8080/"> registrieren.</a>
+  <p style="font-size: 20px">
+    Falls Sie keinen Account besitzen, müssen Sie sich zuerst
+      <a routerLink="/register">registrieren
+      </a> .
   </p>
 
 </div>
