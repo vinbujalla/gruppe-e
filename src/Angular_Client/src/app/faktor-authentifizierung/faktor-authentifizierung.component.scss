@@ -33,7 +33,7 @@
 
 
   button{
-    bottom: 150px;
+    bottom: 130px;
     right: 50px;
     margin-bottom: 50px;
     &:hover{
@@ -45,5 +45,9 @@
     height: 32px;
     border: 2px solid rgba(0,0,0,1);
     border-radius: 20px;
+  }
+
+  h1{
+    margin-left: 30px;
   }
 }

@@ -1,7 +1,22 @@
 
 <div class="card">
   <img src="assets/login.png">
-  <p>Bitte tragen sie ihren Vor- und Nachnamen, sowie ihre E-Mail und Passwort in die entsprechenden Zeilen ein. </p>
+  <h1 type ="title">Registrierung</h1>
+
+  <fieldset>
+
+    <div>
+
+      <input  type="radio" id="User" name="drone" value="User"
+              checked >
+      <label style=font-size:25px; for="User">User  </label>
+    </div>
+    <div>
+      <input type="radio" id="Admin" name="drone" value="Admin">
+      <label style=font-size:25px; for="Admin">Admin</label>
+    </div>
+  </fieldset>
+
   <p>  </p>
   <p>Vorname</p>
   <input type="name"/>
@@ -9,12 +24,19 @@
   <input type="email"/>
   <p>E-Mail</p>
   <input type="email"/>
+  <p>E-Mail wiederholen</p>
+  <input type="email"/>
   <p>Passwort</p>
   <input type="password"/>
   <p>Passwort wiederholen</p>
   <input type="password"/>
   <p></p><p></p><p></p><p></p>
   <button>Bestätigen</button>
-  <p></p><p></p><p></p><p></p>
+
+  <p style="font-size: 17px">
+    Hier geht es zurück zum
+    <a routerLink="/">Login
+    </a> .
+  </p>
 
 </div>
