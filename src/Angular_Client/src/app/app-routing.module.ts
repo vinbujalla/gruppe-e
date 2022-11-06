@@ -8,7 +8,7 @@ import {FaktorAuthentifizierungComponent} from "./faktor-authentifizierung/fakto
 
 const routes: Routes = [
   {path:'users',component:UserListComponent},
-  {path:'login',component:LogInFensterComponent},
+  {path:'',component:LogInFensterComponent},
   {path:'register',component:RegisterFormComponent},
   {path:'2-faktor',component:FaktorAuthentifizierungComponent},
 
