@@ -6,6 +6,7 @@ import {LogInFensterComponent} from "./log-in-fenster/log-in-fenster.component";
 import {RegisterFormComponent} from "./register-form/register-form.component";
 import {FaktorAuthentifizierungComponent} from "./faktor-authentifizierung/faktor-authentifizierung.component";
 import {CreateLeagueComponent} from "./create-league/create-league.component";
+import {GameScheduleComponent} from "./game-schedule/game-schedule.component";
 
 const routes: Routes = [
   {path:'users',component:UserListComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'register',component:RegisterFormComponent},
   {path:'2-faktor',component:FaktorAuthentifizierungComponent},
   {path: 'create-league',component: CreateLeagueComponent},
+  {path: 'game-schedule', component:GameScheduleComponent}
 
 ];
 

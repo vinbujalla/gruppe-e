@@ -13,6 +13,7 @@ import { LogInFensterComponent } from './log-in-fenster/log-in-fenster.component
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { FaktorAuthentifizierungComponent } from './faktor-authentifizierung/faktor-authentifizierung.component';
 import { CreateLeagueComponent } from './create-league/create-league.component';
+import { GameScheduleComponent } from './game-schedule/game-schedule.component';
 
 
 
@@ -28,6 +29,7 @@ import { CreateLeagueComponent } from './create-league/create-league.component';
     RegisterFormComponent,
     FaktorAuthentifizierungComponent,
     CreateLeagueComponent,
+    GameScheduleComponent,
 
 
 
