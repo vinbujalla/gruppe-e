@@ -12,6 +12,9 @@ import { UserSearchComponent } from './user-search/user-search.component';
 import { LogInFensterComponent } from './log-in-fenster/log-in-fenster.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { FaktorAuthentifizierungComponent } from './faktor-authentifizierung/faktor-authentifizierung.component';
+import { CreateLeagueComponent } from './create-league/create-league.component';
+import { GameScheduleComponent } from './game-schedule/game-schedule.component';
+
 
 
 
@@ -25,6 +28,8 @@ import { FaktorAuthentifizierungComponent } from './faktor-authentifizierung/fak
     LogInFensterComponent,
     RegisterFormComponent,
     FaktorAuthentifizierungComponent,
+    CreateLeagueComponent,
+    GameScheduleComponent,
 
 
 
