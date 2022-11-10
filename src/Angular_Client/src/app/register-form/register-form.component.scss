@@ -1,6 +1,4 @@
 .card{
-  margin-left: 250px;
-  margin-top: 70px;
   min-height: 550px;
   background-color: lightgreen;
   width: 600px;
@@ -13,7 +11,7 @@
     width: 10%;
   }
   h1{
-    padding-left: 225px;
+    padding-left: 180px;
     padding-top: 0px;
     padding-bottom: 10px;
   }
@@ -40,7 +38,7 @@
 
   button{
     cursor: pointer;
-    bottom: 100px;
+    bottom: 60px;
     right: 50px;
     margin-bottom: 0px;
     &:hover{

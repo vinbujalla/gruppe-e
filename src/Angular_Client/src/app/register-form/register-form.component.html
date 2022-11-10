@@ -1,0 +1,52 @@
+
+<div class="card">
+  <img src="assets/login.png">
+  <h1 type ="title">Registrierung</h1>
+
+  <form method="post" action="/register">
+    <fieldset>
+
+      <div>
+
+        <input  type="radio" id="User" name="drone" value="User"
+                checked >
+        <label style=font-size:25px; for="User">User  </label>
+      </div>
+      <div>
+        <input type="radio" id="Admin" name="drone" value="Admin">
+        <label style=font-size:25px; for="Admin">Admin</label>
+      </div>
+    </fieldset>
+
+    <p>  </p>
+    <p>Vorname</p>
+    <input type="name"/>
+
+    <p>Nachname</p>
+    <input type="name"/>
+
+    <p>E-Mail</p>
+    <input type="mail"/>
+
+
+    <p>E-Mail wiederholen</p>
+    <input type="email"/>
+
+    <p>Passwort</p>
+    <input type="password"/>
+
+    <p>Passwort wiederholen</p>
+    <input type="password"/>
+
+    <p></p><p></p><p></p><p></p>
+    <button>Bestätigen</button>
+
+    <p style="font-size: 17px">
+      Hier geht es zurück zum
+      <a routerLink="/">Login
+      </a> .
+    </p>
+  </form>
+
+
+</div>
