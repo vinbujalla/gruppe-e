@@ -1,12 +1,13 @@
 
 <div class="card">
   <img src="assets/login.png">
+
   <h1 type ="title">Log-In </h1>
+
   <form action="/">
   <fieldset>
     <div>
-      <input  type="radio" id="User" name="drone" value="User"
-             checked >
+      <input  type="radio" id="User" name="drone" value="User" checked >
       <label style=font-size:25px; for="User">User  </label>
     </div>
     <div>
@@ -16,22 +17,30 @@
   </fieldset>
 
   <p>  </p>
-  <label> E-Mail</label>
+    <div>
+      <label> E-Mail</label>
+      <input type="email"/>
 
 
-    <input type="email"/>
 
-    <label> Passwort</label>
-    <input type="password"/>
+    </div>
+
+    <div>
+      <label>Passwort</label>
+      <input type="password"/>
+
+    </div>
+
+
+
     <button>Bestätigen</button>
-    <p></p><p></p><p></p><p></p>
-    <p style="font-size: 17px">
-      Falls Sie keinen Account besitzen, müssen Sie sich zuerst
-      <a routerLink="/register">registrieren
-      </a> .
-    </p>
-  </form>
 
 
 
-</div>
+  <p></p><p></p><p></p><p></p>
+  <p style="font-size: 17px">
+    Falls Sie keinen Account besitzen, müssen Sie sich zuerst
+    <a routerLink="/register">registrieren
+    </a> .
+  </p>
+
