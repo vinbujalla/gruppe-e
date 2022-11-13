@@ -1,52 +1,50 @@
-
-<div class="card">
-  <img src="assets/login.png">
-  <h1 type ="title">Registrierung</h1>
-
-  <form method="post" action="/register">
-    <fieldset>
-
-      <div>
-
-        <input  type="radio" id="User" name="drone" value="User"
-                checked >
-        <label style=font-size:25px; for="User">User  </label>
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      <div class="form-group">
+        <label for="firstname">Vorname</label>
+        <input type="text" [(ngModel)]="user.firstName"
+               class="form-control"
+               id="firstname"
+               name="firstname"
+               placeholder="Vorname"
+               required #firstname="ngModel">
       </div>
-      <div>
-        <input type="radio" id="Admin" name="drone" value="Admin">
-        <label style=font-size:25px; for="Admin">Admin</label>
+      <div [hidden]="!firstname.pristine" class="alert alert-danger">Vorname eingeben!</div>
+      <div class="form-group">
+        <label for="lastname">Nachname</label>
+        <input type="text" [(ngModel)]="user.lastName"
+               class="form-control"
+               id="lastname"
+               name="lastname"
+               placeholder="Nachname"
+               required #lastname="ngModel">
+        <div [hidden]="!lastname.pristine" class="alert alert-danger">Nachname eingeben!</div>
       </div>
-    </fieldset>
 
-    <p>  </p>
-    <p>Vorname</p>
-    <input type="name"/>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" [(ngModel)]="user.email"
+               class="form-control"
+               id="email"
+               name="email"
+               placeholder="Enter your email address"
+               required #email="ngModel">
+        <div [hidden]="!email.pristine" class="alert alert-danger">Email eingeben!</div>
+      </div>
 
-    <p>Nachname</p>
-    <input type="name"/>
-
-    <p>E-Mail</p>
-    <input type="mail"/>
-
-
-    <p>E-Mail wiederholen</p>
-    <input type="email"/>
-
-    <p>Passwort</p>
-    <input type="password"/>
-
-    <p>Passwort wiederholen</p>
-    <input type="password"/>
-
-    <p></p><p></p><p></p><p></p>
-    <button>Bestätigen</button>
-
-    <p style="font-size: 17px">
-      Hier geht es zurück zum
-      <a routerLink="/">Login
-      </a> .
-    </p>
-  </form>
-
-
+      <div class="form-group">
+        <label for="password">Passwort</label>
+        <input type="text" [(ngModel)]="user.password"
+               class="form-control"
+               id="password"
+               name="email"
+               placeholder="Enter your email address"
+               required #passwort="ngModel">
+        <div [hidden]="!passwort.pristine" class="alert alert-danger">Email eingeben!</div>
+      </div>
+      <button type="submit" [disabled]="!registerForm.form.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
 </div>
