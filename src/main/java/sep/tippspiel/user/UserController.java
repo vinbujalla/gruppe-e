@@ -4,14 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import javax.validation.Valid;
-import javax.xml.ws.Response;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
-
-
 
 import java.util.List;
+
+
+
+
 
 import static sep.tippspiel.user.UserService.isValidEmailAddress;
 
@@ -29,7 +27,7 @@ public class UserController {
 
         if(isValidEmailAddress(user.getEmail())){
             if(this.userService.findByEmail(user.getEmail())!=null) {
-                return new ResponseEntity<>("User mit diesem E-Mail-Adresse ist bereits registriert", HttpStatus.OK);
+                return new ResponseEntity<>("User mit dieser E-Mail-Adresse ist bereits registriert", HttpStatus.OK);
             } else {
                 if(this.userService.createUser(user.getVorname(), user.getNachname(), user.getEmail(), user.getPasswort())) {
                     return new ResponseEntity<>("User wurde erstellt:", HttpStatus.OK);

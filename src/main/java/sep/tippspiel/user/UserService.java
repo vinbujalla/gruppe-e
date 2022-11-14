@@ -4,12 +4,10 @@ import com.google.common.hash.Hashing;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import javax.validation.Valid;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
