@@ -1,9 +1,9 @@
 export class User
 {
   id:string|undefined;
-  firstName:string|undefined;
-  lastName:string|undefined;
+  vorname:string|undefined;
+  nachname:string|undefined;
   email:string|undefined;
-  password:string|undefined;
+  passwort:string|undefined;
 
 }

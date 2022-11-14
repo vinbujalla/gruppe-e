@@ -19,16 +19,22 @@ export class RegisterFormComponent {
 
   onSubmit()
   {
-    this.userService.save(this.user).subscribe(result=>this.gotoUserList(),this.errorWithSubmit);
+    this.userService.save(this.user).subscribe(result=>this.userRegistered());
   }
 
-  gotoUserList()
+  userRegistered() {
+    alert("Dein Account wurde erstelllt!")
+  }
+
+
+
+  /*gotoUserList()
   {
     this.router.navigate(['users']);
-  }
+  }*/
 
-  errorWithSubmit()
+  /*errorWithSubmit()
   {
     alert("E-Mail-Adresse bereits vergeben")
-  }
+  }*/
 }

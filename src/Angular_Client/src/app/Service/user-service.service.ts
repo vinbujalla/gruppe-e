@@ -9,7 +9,7 @@ import {User} from "../Model/user";
 export class UserServiceService {
 
   private userURL:string;
-  constructor(private http:HttpClient) { this.userURL='http://localhost:8080/users';}
+  constructor(private http:HttpClient) { this.userURL="http://localhost:8080";}
 
   public findAll(): Observable<User[]>
   {
@@ -18,7 +18,7 @@ export class UserServiceService {
 
   public save(user:User)
   {
-    return this.http.post<User>(this.userURL,user);
+    return this.http.post<User>(this.userURL+"/user/create",user);
   }
 
   public delete(user: User)

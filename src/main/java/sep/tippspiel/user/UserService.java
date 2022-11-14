@@ -27,7 +27,8 @@ public class UserService {
             userRepository.save(user);
             return true;
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
+            //System.err.println(e.getMessage());
             return false;
         }
 
