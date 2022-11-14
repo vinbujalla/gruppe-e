@@ -4,6 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
+import javax.xml.ws.Response;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
+
 
 
 import java.util.List;
@@ -17,6 +22,7 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
 
     @PostMapping(path = "/create",  produces = "application/json", consumes = "application/json")
     public ResponseEntity<String> createUser(@RequestBody Users user) {
@@ -49,6 +55,28 @@ public class UserController {
         List<Users> usersByName = this.userService.findByName(vorname);
         return new ResponseEntity<>(usersByName, HttpStatus.OK);
     }
+    @GetMapping(path = "/login", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<String> loginUser(@RequestBody Users user){
+        if(this.userService.findByEmail(user.getEmail()) != null){
+            this.userService.loginUser(user);
+            return new ResponseEntity<>("Erfolgreich eingeloggt" , HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>("E-Mail oder Passwort falsch", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping(path = "/logout", produces =  "application/json", consumes = "application/json")
+    public ResponseEntity<String> logOutUser(@RequestBody Users user){
+        if(this.userService.findByEmail(user.getEmail()) != null){
+        this.userService.logUserOut(user);
+        return new ResponseEntity<>("Erfolgreich ausgeloogt", HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>("Ausloggen fehlgeschlagen" , HttpStatus.BAD_REQUEST);
+        }
+    }
+
 
 
 }
