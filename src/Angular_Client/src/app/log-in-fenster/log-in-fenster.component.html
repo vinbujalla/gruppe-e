@@ -1,47 +1,39 @@
-
-<div class="card">
-  <img src="assets/login.png">
-
-  <h1 type ="title">Log-In </h1>
-
-  <form action="/">
-  <fieldset>
-    <div>
-      <input  type="radio" id="User" name="drone" value="User" checked >
-      <label style=font-size:25px; for="User">User  </label>
-    </div>
-    <div>
-      <input type="radio" id="Admin" name="drone" value="Admin">
-      <label style=font-size:25px; for="Admin">Admin</label>
-    </div>
-  </fieldset>
-
-  <p>  </p>
-    <div>
-      <label> E-Mail</label>
-      <input type="email"/>
-
-
-
-    </div>
-
-    <div>
-      <label>Passwort</label>
-      <input type="password"/>
-
-    </div>
+<div class="card my-5">
+  <div class="card-body">
+    <h2>Log-In</h2>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="form-group">
+        <label for="firstname">Vorname</label>
+        <input type="text" [(ngModel)]="user.vorname"
+               class="form-control"
+               id="firstname"
+               name="firstname"
+               placeholder="Vorname"
+               required #firstname="ngModel">
+      </div>
+      <div [hidden]="!firstname.pristine" class="alert alert-danger">Vorname eingeben!</div>
+      <div class="form-group">
+        <label for="lastname">Nachname</label>
+        <input type="text" [(ngModel)]="user.nachname"
+               class="form-control"
+               id="lastname"
+               name="lastname"
+               placeholder="Nachname"
+               required #lastname="ngModel">
+        <div [hidden]="!lastname.pristine" class="alert alert-danger">Nachname eingeben!</div>
+      </div>
 
 
+    </form>
+  </div>
+</div>
 
-    <button>Bestätigen</button>
 
-  </form>
-
-  <p></p><p></p><p></p><p></p>
+<!--<p></p><p></p><p></p><p></p>
   <p style="font-size: 17px">
     Falls Sie keinen Account besitzen, müssen Sie sich zuerst
     <a routerLink="/register">registrieren
     </a> .
   </p>
+-->
 
-</div>

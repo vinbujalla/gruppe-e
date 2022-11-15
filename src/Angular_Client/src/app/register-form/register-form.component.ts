@@ -20,10 +20,11 @@ export class RegisterFormComponent {
   onSubmit()
   {
     this.userService.save(this.user).subscribe(result=>this.userRegistered());
+
   }
 
   userRegistered() {
-    alert("Dein Account wurde erstelllt!")
+    alert("Wurde erstellt");
   }
 
 
