@@ -47,7 +47,7 @@ public class UserController {
         List<Users> allUsers = this.userService.all();
         return new ResponseEntity<>(allUsers, HttpStatus.OK);
     }
-
+//hm
     @GetMapping(path = "/findByName/{vorname}", produces = "application/json")
     public ResponseEntity<List<Users>> getUsersByName(@PathVariable String vorname) {
         List<Users> usersByName = this.userService.findByName(vorname);
