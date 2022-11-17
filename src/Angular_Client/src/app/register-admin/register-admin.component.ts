@@ -7,7 +7,7 @@ import {User} from "../Model/user";
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-admin.component.html',
-  styleUrls: ['./register-adin.component.scss']
+  styleUrls: ['./register-admin.component.scss']
 })
 export class RegisterAdminComponent {
 

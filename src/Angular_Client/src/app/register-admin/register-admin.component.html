@@ -1,7 +1,7 @@
 <div class="card my-5" xmlns="http://www.w3.org/1999/html">
   <div class="card-body">
     <h1>Registrieren Admin</h1>
-    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+    <form (ngSubmit)="onSubmit()" #registerAdminForm="ngForm">
 
 
 
@@ -47,17 +47,14 @@
                required #password="ngModel">
       </div>
       <div [hidden]="!lastname.pristine" class="alert alert-danger">Passwort eingeben!</div>
-      <button  type="submit" [disabled]="!registerForm.form.valid"
+      <button  type="submit" [disabled]="!registerAdminForm.form.valid"
                class="btn btn-info">Bestätigen</button>
     </form>
 
-    <label >Geburtsdatum</label><br>
-    <input type="date"><br>
-    <div  class="alert alert-danger">Geburtsdatum eingeben!</div>
+    <p style="font-size: 17px">Falls Sie bereits einen Account besitzen, klicken Sie
+      <a href="http://localhost:8080/"> hier.</a>
+    </p>
 
-    <label>Bild</label><br>
-    <input type="file"
-           id="avatar" name="avatar"
-           accept="image/png, image/jpeg">
+
   </div>
 </div>
