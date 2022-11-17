@@ -1,4 +1,4 @@
-<div class="card my-5">
+<div class="card my-5" xmlns="http://www.w3.org/1999/html">
   <div class="card-body">
     <h1>Registrieren</h1>
     <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
@@ -53,7 +53,15 @@
       <div [hidden]="!lastname.pristine" class="alert alert-danger">Passwort eingeben!</div>
       <button  type="submit" [disabled]="!registerForm.form.valid"
               class="btn btn-info">Bestätigen</button>
-
     </form>
+
+      <label >Geburtsdatum</label><br>
+      <input type="date"><br>
+    <div  class="alert alert-danger">Geburtsdatum eingeben!</div>
+
+    <label>Bild</label><br>
+    <input type="file"
+           id="avatar" name="avatar"
+           accept="image/png, image/jpeg">
   </div>
 </div>
