@@ -1,9 +1,10 @@
 .card{
-  min-height: 650px;
+  min-height: 740px;
   background-color: lightgreen;
+  margin-left: 200px;
   width: 600px;
   border: 3px solid rgba(0,0,0,1);
-  border-radius: 10px;
+  border-radius: 4px;
   overflow: hidden;
   position: relative;
 
@@ -21,6 +22,7 @@
     font-size: 25px;
   }
   input{
+
     fieldset{
 
     }
@@ -31,13 +33,13 @@
       background-color: lightgray;
     }
     border: 2px solid rgba(0,0,0,1);
-    border-radius: 10px;
+    border-radius: 4px;
   }
 
 
   button{
     cursor: pointer;
-    bottom: 30px;
+    bottom: 5px;
     right: 50px;
     margin-bottom: 0px;
     color: black;
@@ -50,7 +52,7 @@
     position: absolute;
     height: 32px;
     border: 2px solid rgba(0,0,0,1);
-    border-radius: 10px;
+    border-radius: 4px;
     font-size: 16px;
   }
 }

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Angular_ArbeitsPaket_Server.iml" filepath="$PROJECT_DIR$/Angular_ArbeitsPaket_Server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tippspiel.iml" filepath="$PROJECT_DIR$/Tippspiel.iml" />
     </modules>
   </component>
 </project>

@@ -1,11 +1,13 @@
 .card{
-  min-height: 550px;
+  min-height: 450px;
   background-color: lightgreen;
   width: 600px;
   border: 3px solid rgba(0,0,0,1);
-  border-radius: 10px;
+  border-radius: 4px;
   overflow: hidden;
   position: relative;
+  margin-top: 100px;
+  margin-left: 200px;
 
   img{
     width: 10%;
@@ -25,22 +27,23 @@
       background-color: lightgray;
     }
     border: 2px solid rgba(0,0,0,1);
-    border-radius: 10px;
+    border-radius: 4px;
   }
 
   button{
-    bottom: 130px;
+    bottom: 80px;
     right: 50px;
     margin-bottom: 50px;
     &:hover{
       background-color: lightgray;
+      cursor: pointer;
     }
     background-color: white;
     width: 30%;
     position: absolute;
     height: 32px;
     border: 2px solid rgba(0,0,0,1);
-    border-radius: 20px;
+    border-radius:4px;
   }
 
   h1{
