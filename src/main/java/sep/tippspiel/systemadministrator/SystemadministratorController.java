@@ -6,10 +6,15 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import sep.tippspiel.systemdatum.SystemDatumRepository;
 import sep.tippspiel.systemdatum.SystemDatumService;
 import sep.tippspiel.user.Users;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
 
@@ -54,6 +59,33 @@ public class SystemadministratorController {
     public ResponseEntity<List<Systemadministrator>> getSAByName(@PathVariable String vorname) {
         List<Systemadministrator> saByName = this.systemadministratorService.findByName(vorname);
         return new ResponseEntity<>(saByName, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/loadcsvf")
+    public ResponseEntity<String> loadCSVF(@RequestParam("csv") MultipartFile multipartFile) {
+        if(this.systemadministratorService.istCSVFormat(multipartFile)) {
+            File file = new File("src/main/resources/targetFile.tmp");
+
+            try (OutputStream os = new FileOutputStream(file)) {
+                os.write(multipartFile.getBytes());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            systemadministratorService.csvEinlesen(file);
+            return new ResponseEntity<>("CSV wurde importiert", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Datei konnte nicht importiert werden. Verwenden Sie bitte ausschließlich CSV Format ", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @PostMapping(path = "/setSystemDatum", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<String> setSystemDatum(@RequestParam Date date) {
+
+        if(this.systemadministratorService.setSystemDatum(date)){
+            return new ResponseEntity<String>("Datum wurde aktualisiert", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<String>("Datum konnte nicht aktualisiert werden", HttpStatus.BAD_REQUEST);
+        }
     }
 
 
