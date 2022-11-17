@@ -1,7 +1,15 @@
 <div class="card my-5">
   <div class="card-body">
-    <h2>Log-In</h2>
-    <form (ngSubmit)="send()" #loginForm="ngForm">
+    <h1>Log-In</h1>
+    <p> </p>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+
+      <label  for="admin">Admin</label>
+      <input type="radio" name="rechte" id="admin" value="a">
+      &nbsp;
+      <label for="user">User</label>
+      <input type="radio" name="rechte" id="user" value="u">
+
       <div class="form-group">
         <label for="firstname">Vorname</label>
         <input type="text" [(ngModel)]="user.vorname"
@@ -12,6 +20,7 @@
                required #firstname="ngModel">
       </div>
       <div [hidden]="!firstname.pristine" class="alert alert-danger">Vorname eingeben!</div>
+
       <div class="form-group">
         <label for="lastname">Nachname</label>
         <input type="text" [(ngModel)]="user.nachname"
@@ -20,8 +29,8 @@
                name="lastname"
                placeholder="Nachname"
                required #lastname="ngModel">
-        <div [hidden]="!lastname.pristine" class="alert alert-danger">Nachname eingeben!</div>
-      </div>
+       </div>
+      <div [hidden]="!lastname.pristine" class="alert alert-danger">Nachname eingeben!</div>
 
       <div class="form-group">
         <label for="email">Email</label>
@@ -29,24 +38,29 @@
                class="form-control"
                id="email"
                name="email"
-               placeholder="Enter your email address"
+               placeholder="Email"
                required #email="ngModel">
-        <div [hidden]="!email.pristine" class="alert alert-danger">Email eingeben!</div>
-      </div>
-
+        </div>
+      <div [hidden]="!email.pristine" class="alert alert-danger">Email eingeben!</div>
       <div class="form-group">
         <label for="password">Passwort</label>
         <input type="password" [(ngModel)]="user.passwort"
                class="form-control"
                id="password"
                name="email"
-               placeholder="Enter your email address"
+               placeholder="Passwort"
                required #password="ngModel">
-        <div [hidden]="!password.pristine" class="alert alert-danger">Passwort eingeben!</div>
-      </div>
+       </div>
+      <div [hidden]="!password.pristine" class="alert alert-danger">Passwort eingeben!</div>
       <button  type="submit" [disabled]="!loginForm.form.valid"
-               class="btn btn-info">Submit</button>
+               class="btn btn-info">Bestätigen</button>
+
 
     </form>
   </div>
+
+  <p style="font-size: 17px">Falls Sie keinen Account besitzen, klicken Sie
+    <a href="http://localhost:4200/register"> hier</a> um ihn
+    erneut zu senden.
+  </p>
 </div>

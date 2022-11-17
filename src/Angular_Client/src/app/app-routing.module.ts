@@ -8,6 +8,8 @@ import {FaktorAuthentifizierungComponent} from "./faktor-authentifizierung/fakto
 import {CreateLeagueComponent} from "./create-league/create-league.component";
 import {GameScheduleComponent} from "./game-schedule/game-schedule.component";
 import {EditProfileComponent} from "./edit-profile/edit-profile.component";
+import {HomeComponent} from "./home/home.component";
+
 
 const routes: Routes = [
   {path:'users',component:UserListComponent},
@@ -17,6 +19,7 @@ const routes: Routes = [
   {path: 'create-league',component: CreateLeagueComponent},
   {path: 'game-schedule', component:GameScheduleComponent},
   {path: 'edit-profile', component:EditProfileComponent},
+  {path: 'home', component:HomeComponent},
 ];
 
 @NgModule({
