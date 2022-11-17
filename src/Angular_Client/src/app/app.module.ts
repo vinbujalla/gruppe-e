@@ -15,6 +15,7 @@ import { FaktorAuthentifizierungComponent } from './faktor-authentifizierung/fak
 import { CreateLeagueComponent } from './create-league/create-league.component';
 import { GameScheduleComponent } from './game-schedule/game-schedule.component';
 import { HomeComponent } from './home/home.component';
+import { LoginAdminComponent } from './login-admin/login-admin.component';
 
 
 
@@ -32,6 +33,7 @@ import { HomeComponent } from './home/home.component';
     CreateLeagueComponent,
     GameScheduleComponent,
     HomeComponent,
+    LoginAdminComponent,
 
 
 

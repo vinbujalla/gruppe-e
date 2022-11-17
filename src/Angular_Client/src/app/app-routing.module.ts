@@ -9,6 +9,7 @@ import {CreateLeagueComponent} from "./create-league/create-league.component";
 import {GameScheduleComponent} from "./game-schedule/game-schedule.component";
 import {EditProfileComponent} from "./edit-profile/edit-profile.component";
 import {HomeComponent} from "./home/home.component";
+import {LoginAdminComponent} from "./login-admin/login-admin.component";
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'game-schedule', component:GameScheduleComponent},
   {path: 'edit-profile', component:EditProfileComponent},
   {path: 'home', component:HomeComponent},
+  {path: 'login-admin', component: LoginAdminComponent},
 ];
 
 @NgModule({

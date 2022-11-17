@@ -1,6 +1,6 @@
 <div class="card my-5" xmlns="http://www.w3.org/1999/html">
   <div class="card-body">
-    <h1>Registrieren</h1>
+    <h1>Registrieren User</h1>
     <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
 
 
@@ -42,7 +42,7 @@
         <input type="password" [(ngModel)]="user.passwort"
                class="form-control"
                id="password"
-               name="email"
+               name="password"
                placeholder="Passwort"
                required #password="ngModel">
       </div>

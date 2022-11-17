@@ -1,6 +1,6 @@
 <div class="card my-5">
   <div class="card-body">
-    <h1>Log-In User</h1>
+    <h1>Log-In Admin</h1>
     <p> </p>
     <form (ngSubmit)="send()" #loginForm="ngForm">
 
@@ -24,7 +24,7 @@
                name="lastname"
                placeholder="Nachname"
                required #lastname="ngModel">
-       </div>
+      </div>
       <div [hidden]="!lastname.pristine" class="alert alert-danger">Nachname eingeben!</div>
 
       <div class="form-group">
@@ -35,7 +35,7 @@
                name="email"
                placeholder="Email"
                required #email="ngModel">
-        </div>
+      </div>
       <div [hidden]="!email.pristine" class="alert alert-danger">Email eingeben!</div>
       <div class="form-group">
         <label for="password">Passwort</label>
@@ -45,7 +45,7 @@
                name="email"
                placeholder="Passwort"
                required #password="ngModel">
-       </div>
+      </div>
       <div [hidden]="!password.pristine" class="alert alert-danger">Passwort eingeben!</div>
       <button  type="submit" [disabled]="!loginForm.form.valid"
                class="btn btn-info">Bestätigen</button>
