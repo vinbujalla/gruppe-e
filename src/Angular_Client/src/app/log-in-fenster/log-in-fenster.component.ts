@@ -17,13 +17,13 @@ export class LogInFensterComponent {
               private router: Router,
               private userService: UserServiceService) {this.user=new User()}
 
-  onSubmit()
+  send()
   {
-    this.userService.save(this.user).subscribe(result=>this.userRegistered());
+    this.userService.login(this.user).subscribe(result=>this.hallo());
   }
 
-  userRegistered() {
-    alert("Dein Account wurde erstellt!")
+  hallo() {
+    alert("hallo!")
   }
 
 

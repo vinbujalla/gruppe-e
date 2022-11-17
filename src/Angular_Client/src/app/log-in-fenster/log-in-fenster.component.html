@@ -1,7 +1,7 @@
 <div class="card my-5">
   <div class="card-body">
     <h2>Log-In</h2>
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <form (ngSubmit)="send()" #loginForm="ngForm">
       <div class="form-group">
         <label for="firstname">Vorname</label>
         <input type="text" [(ngModel)]="user.vorname"

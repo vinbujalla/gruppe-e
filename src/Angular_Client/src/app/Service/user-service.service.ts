@@ -21,6 +21,11 @@ export class UserServiceService {
     return this.http.post<User>(this.userURL+"/user/create",user);
   }
 
+  public login(user:User)
+  {
+    return this.http.post<User>(this.userURL+"/user/login",user);
+  }
+
   public delete(user: User)
   {
     this.http.delete(this.userURL+"/"+user.id).subscribe();
