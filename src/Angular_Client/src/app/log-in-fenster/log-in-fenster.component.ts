@@ -19,7 +19,7 @@ export class LogInFensterComponent {
 
   send()
   {
-    this.userService.login(this.user).subscribe(result=>this.hallo());
+    this.userService.loginUser(this.user).subscribe(result=>this.hallo());
   }
 
   hallo() {

@@ -6,10 +6,10 @@ import {User} from "../Model/user";
 
 @Component({
   selector: 'app-register-form',
-  templateUrl: './login-admin.component.html',
-  styleUrls: ['./login-admin.component.scss']
+  templateUrl: './register-admin.component.html',
+  styleUrls: ['./register-admin.component.scss']
 })
-export class LoginAdminComponent {
+export class RegisterAdminComponent {
 
   user:User;
 
@@ -17,13 +17,14 @@ export class LoginAdminComponent {
               private router: Router,
               private userService: UserServiceService) {this.user=new User()}
 
-  send()
+  onSubmit()
   {
-    this.userService.loginUser(this.user).subscribe(result=>this.hallo());
+    this.userService.save(this.user).subscribe(result=>this.userRegistered());
+
   }
 
-  hallo() {
-    alert("hallo!")
+  userRegistered() {
+    alert("Wurde erstellt");
   }
 
 

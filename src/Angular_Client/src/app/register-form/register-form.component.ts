@@ -19,7 +19,7 @@ export class RegisterFormComponent {
 
   onSubmit()
   {
-    this.userService.save(this.user).subscribe(result=>this.userRegistered());
+    this.userService.loginUser(this.user).subscribe(result=>this.userRegistered());
 
   }
 

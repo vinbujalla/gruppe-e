@@ -10,6 +10,8 @@ import {GameScheduleComponent} from "./game-schedule/game-schedule.component";
 import {EditProfileComponent} from "./edit-profile/edit-profile.component";
 import {HomeComponent} from "./home/home.component";
 import {LoginAdminComponent} from "./login-admin/login-admin.component";
+import {RegisterAdminComponent} from "./register-admin/register-admin.component";
+import {DashboardComponent} from "./dashboard/dashboard.component";
 
 
 const routes: Routes = [
@@ -22,6 +24,8 @@ const routes: Routes = [
   {path: 'edit-profile', component:EditProfileComponent},
   {path: 'home', component:HomeComponent},
   {path: 'login-admin', component: LoginAdminComponent},
+  {path: 'register-admin', component: RegisterAdminComponent},
+  {path:'dashboard', component: DashboardComponent},
 ];
 
 @NgModule({
