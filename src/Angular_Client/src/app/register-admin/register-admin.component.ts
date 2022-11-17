@@ -6,10 +6,10 @@ import {User} from "../Model/user";
 
 @Component({
   selector: 'app-register-form',
-  templateUrl: './register-form.component.html',
-  styleUrls: ['./register-form.component.scss']
+  templateUrl: './register-admin.component.html',
+  styleUrls: ['./register-adin.component.scss']
 })
-export class RegisterFormComponent {
+export class RegisterAdminComponent {
 
   user:User;
 
@@ -19,7 +19,7 @@ export class RegisterFormComponent {
 
   onSubmit()
   {
-    this.userService.loginUser(this.user).subscribe(result=>this.userRegistered());
+    this.userService.save(this.user).subscribe(result=>this.userRegistered());
 
   }
 

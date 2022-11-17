@@ -16,6 +16,7 @@ import { CreateLeagueComponent } from './create-league/create-league.component';
 import { GameScheduleComponent } from './game-schedule/game-schedule.component';
 import { HomeComponent } from './home/home.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
+import { RegisterAdminComponent } from './register-admin/register-admin.component';
 
 
 
@@ -34,6 +35,7 @@ import { LoginAdminComponent } from './login-admin/login-admin.component';
     GameScheduleComponent,
     HomeComponent,
     LoginAdminComponent,
+    RegisterAdminComponent,
 
 
 

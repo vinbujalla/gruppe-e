@@ -21,9 +21,14 @@ export class UserServiceService {
     return this.http.post<User>(this.userURL+"/user/create",user);
   }
 
-  public login(user:User)
+  public loginUser(user:User)
   {
     return this.http.post<User>(this.userURL+"/user/login",user);
+  }
+
+  public loginAadmin(user:User)
+  {
+    return this.http.post<User>(this.userURL+"/admin/login",user);
   }
 
   public delete(user: User)
