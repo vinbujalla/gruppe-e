@@ -1,21 +1,48 @@
 
-<div class="card">
-  <h1> Liga erstellen </h1>
-  <p>Erstellen Sie Ihre eigene Liga! </p>
-  <p>  </p>
-  <p>Bild</p>
-  <input type="file"
-         id="avatar" name="avatar"
-         accept="image/png, image/jpeg">
-  <p>Name</p>
-  <input type="name"/>
-
-  <p>Spielplan</p>
-  <input id="fileSelect" type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+<div class="card my-5" xmlns="http://www.w3.org/1999/html">
+  <div class="card-body">
+    <h1>Liga erstellen</h1>
+    <form (ngSubmit)="onSubmit()" #createLeagueForm="ngForm">
 
 
-  <p></p><p></p><p></p><p></p>
-  <button>Bestätigen</button>
-  <p></p><p></p><p></p><p></p>
 
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="league.name"
+               class="form-control"
+               id="name"
+               name="name"
+               placeholder="Name"
+               required #name="ngModel">
+      </div>
+
+
+      <div class="form-group">
+        <label for="fileSelect">CSV-Datei</label>
+        <input type="file" [(ngModel)]="league.image"
+               accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+               class="form-control"
+               id="fileSelect"
+               name="file"
+               placeholder="CSV-Datei"
+               required #spielplan="ngModel">
+      </div>
+
+
+      <div class="form-group">
+         <label for="image">Ligabild</label>
+         <input type="file" [(ngModel)]="league.image"
+                class="form-control"
+                id="image"
+                accept="image/png, image/jpeg"
+                name="image"
+                placeholder="Ligabild"
+                required #image="ngModel">
+       </div>
+
+      <button  type="submit" [disabled]="!createLeagueForm.form.valid"
+               class="btn btn-info">Bestätigen</button>
+
+    </form>
+  </div>
 </div>
