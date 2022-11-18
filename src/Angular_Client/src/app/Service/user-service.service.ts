@@ -16,9 +16,14 @@ export class UserServiceService {
     return this.http.get<User[]>(this.userURL);
   }
 
-  public save(user:User)
+  public registerUser(user:User)
   {
     return this.http.post<User>(this.userURL+"/user/create",user);
+  }
+
+  public registerAdmin(user:User)
+  {
+    return this.http.post<User>(this.userURL+"/administrator/createSA",user);
   }
 
   public loginUser(user:User)

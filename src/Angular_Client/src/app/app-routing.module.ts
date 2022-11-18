@@ -16,16 +16,16 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
 
 const routes: Routes = [
   {path:'users',component:UserListComponent},
-  {path:'',component:LogInFensterComponent},
-  {path:'register',component:RegisterFormComponent},
+  {path:'login/user',component:LogInFensterComponent},
+  {path:'register/user',component:RegisterFormComponent},
   {path:'2-faktor',component:FaktorAuthentifizierungComponent},
   {path: 'create-league',component: CreateLeagueComponent},
   {path: 'game-schedule', component:GameScheduleComponent},
   {path: 'edit-profile', component:EditProfileComponent},
-  {path: 'home', component:HomeComponent},
-  {path: 'login-admin', component: LoginAdminComponent},
-  {path: 'register-admin', component: RegisterAdminComponent},
-  {path:'dashboard', component: DashboardComponent},
+  {path: '', component:HomeComponent},
+  {path: 'login/admin', component: LoginAdminComponent},
+  {path: 'register/admin', component: RegisterAdminComponent},
+  {path:'dashboard/admin', component: DashboardComponent},
 ];
 
 @NgModule({

@@ -19,8 +19,7 @@ export class RegisterAdminComponent {
 
   onSubmit()
   {
-    this.userService.save(this.user).subscribe(result=>this.userRegistered());
-
+    this.userService.registerAdmin(this.user).subscribe(result=>this.userRegistered());
   }
 
   userRegistered() {

@@ -17,7 +17,7 @@ export class LogInFensterComponent {
               private router: Router,
               private userService: UserServiceService) {this.user=new User()}
 
-  send()
+  onSubmit()
   {
     this.userService.loginUser(this.user).subscribe(result=>this.hallo());
   }
