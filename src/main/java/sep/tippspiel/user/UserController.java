@@ -31,14 +31,14 @@ public class UserController {
     UserRepository userRepository;
 
 
-    @PostMapping(path = "/create",  produces = "application/json", consumes = "application/json")
+    @PostMapping(path = "/create", produces = "application/json", consumes = "application/json")
     public ResponseEntity<String> createUser(@RequestBody Users user) {
 
-        if(isValidEmailAddress(user.getEmail())){
-            if(this.userService.findByEmail(user.getEmail())!=null) {
+        if (isValidEmailAddress(user.getEmail())) {
+            if (this.userService.findByEmail(user.getEmail()) != null) {
                 return new ResponseEntity<>("User mit diesem E-Mail-Adresse ist bereits registriert", HttpStatus.OK);
             } else {
-                if(this.userService.createUser(user.getVorname(), user.getNachname(),user.getDate(),user.getEmail(), user.getPasswort())) {
+                if (this.userService.createUser(user.getVorname(), user.getNachname(), user.getDate(), user.getEmail(), user.getPasswort())) {
                     return new ResponseEntity<>("User wurde erstellt:", HttpStatus.OK);
                 } else {
                     return new ResponseEntity<>("User konnte nicht erstellt werden", HttpStatus.BAD_REQUEST);
@@ -67,16 +67,16 @@ public class UserController {
     public ResponseEntity<List<Spiel>> getAllSpiele() {
         List<Spiel> allspiele = this.userService.allspiele();
         return new ResponseEntity<>(allspiele, HttpStatus.OK);
-}
+    }
 
     @PutMapping(path = "/setuserimage")
-    public ResponseEntity<String> setUserImage(@RequestParam String email, @RequestParam("image")MultipartFile multipartFile) {
+    public ResponseEntity<String> setUserImage(@RequestParam String email, @RequestParam("image") MultipartFile multipartFile) {
 
-        if(this.ligaService.istImageFormat(multipartFile)) {
+        if (this.ligaService.istImageFormat(multipartFile)) {
             Long id = this.userRepository.findUserIdByEmail(email);
-            String filename = "src/main/resources/userImage"+id.toString()+".jpeg";
+            String filename = "src/main/resources/userImage" + id.toString() + ".jpeg";
 
-            if(this.userService.setUserImage(email,filename)) {
+            if (this.userService.setUserImage(email, filename)) {
                 File file = new File(filename);
 
                 try (OutputStream os = new FileOutputStream(file)) {
@@ -91,5 +91,35 @@ public class UserController {
 
         }
         return new ResponseEntity<>("Es darf nur JPEG Format verwendet werden", HttpStatus.BAD_REQUEST);
+    }
+
+    @PostMapping(path = "/login", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<String> loginUser(@RequestParam String email,@RequestParam String passwort) {
+        if (this.userService.loginUser(email, passwort)){
+            Long id = this.userRepository.findUserIdByEmail(email);
+
+            Users user = this.userRepository.getReferenceById(id);
+            System.out.println(user.isLoggedIn());
+            return new ResponseEntity<>("Login erfolgreich", HttpStatus.OK);
+
+        }
+
+
+        return new ResponseEntity<>("Login fehlgeschlagen", HttpStatus.BAD_REQUEST);
+    }
+
+
+    @PostMapping(path = "/logout", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<String> logOutUser(@RequestParam String email) {
+        if (this.userService.logUserOut(email)) {
+            Long id = this.userRepository.findUserIdByEmail(email);
+
+            Users user = this.userRepository.getReferenceById(id);
+            System.out.println(user.isLoggedIn());
+            return new ResponseEntity<>("Logout erfolgreich", HttpStatus.OK);
+        }
+
+        return new ResponseEntity<>("Logout fehlgeschlagen", HttpStatus.BAD_REQUEST);
+
     }
 }
