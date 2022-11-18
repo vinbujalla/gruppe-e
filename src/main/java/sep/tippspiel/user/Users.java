@@ -1,17 +1,20 @@
 package sep.tippspiel.user;
 
 import com.sun.istack.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
 public class Users implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
@@ -40,12 +43,14 @@ public class Users implements Serializable {
     @NotEmpty(message = "Email darf nicht leer sein")
     @Column(name = "email")
     private String email;
+    @NotNull
     @Column(name = "date")
     private Date date;
     @NotNull
     @NotEmpty(message = "Passwort darf nicht leer sein")
     @Column(name = "passwort")
     private String passwort;
+
     @Column(name = "image")
     private String image;
 
@@ -106,9 +111,10 @@ public class Users implements Serializable {
 
     public Users() {};
 
-    public Users(String vorname, String nachname, String email, String passwort) {
+    public Users(String vorname, String nachname,Date date, String email, String passwort) {
         this.vorname = vorname;
         this.nachname = nachname;
+        this.date = date;
         this.email = email;
         this.passwort = passwort;
     }

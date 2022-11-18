@@ -1,19 +1,21 @@
 package sep.tippspiel.systemadministrator;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import sep.tippspiel.systemdatum.SystemDatumRepository;
+import org.springframework.web.multipart.MultipartFile;
+import sep.tippspiel.spiel.SpielService;
 import sep.tippspiel.systemdatum.SystemDatumService;
-import sep.tippspiel.user.Users;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
 
-import static sep.tippspiel.user.UserService.isValidEmailAddress;
 
 @RestController
 @RequestMapping(value = "/administrator")
@@ -24,6 +26,8 @@ public class SystemadministratorController {
     SystemadministratorService systemadministratorService;
     @Autowired
     SystemDatumService systemDatumService;
+    @Autowired
+    SpielService spielService;
 
     @PostMapping(path = "/createSA",  produces = "application/json", consumes = "application/json")
     public ResponseEntity<String> createUser(@RequestBody Systemadministrator sa) {
@@ -54,6 +58,53 @@ public class SystemadministratorController {
     public ResponseEntity<List<Systemadministrator>> getSAByName(@PathVariable String vorname) {
         List<Systemadministrator> saByName = this.systemadministratorService.findByName(vorname);
         return new ResponseEntity<>(saByName, HttpStatus.OK);
+    }
+
+    @PostMapping(path = "/loadcsvf")
+    public ResponseEntity<String> loadCSVF(@RequestParam("csv") MultipartFile multipartFile) {
+        if(this.systemadministratorService.istCSVFormat(multipartFile)) {
+            File file = new File("src/main/resources/targetFile.tmp");
+
+            try (OutputStream os = new FileOutputStream(file)) {
+                os.write(multipartFile.getBytes());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            systemadministratorService.csvEinlesen(file);
+            return new ResponseEntity<>("CSV wurde importiert", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Datei konnte nicht importiert werden. Verwenden Sie bitte ausschließlich CSV Format ", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+/*    @PostMapping(path = "/setSystemDatum", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<String> setSystemDatum(@RequestParam Date date) {
+
+        if(this.systemadministratorService.setSystemDatum(date)){
+            return new ResponseEntity<String>("Datum wurde aktualisiert", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<String>("Datum konnte nicht aktualisiert werden", HttpStatus.BAD_REQUEST);
+        }
+    }*/
+
+    @PostMapping(path = "/setSystemDatum", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<String> setDate(@RequestParam("date")@DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
+        if(systemDatumService.setDate(date)) {
+            return new ResponseEntity<>("Datum wurde aktualisiert", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Datum konnte nicht aktualisiert werden", HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    //
+    @PutMapping(path = "/setspieldate", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<String> setSpielDatum(@RequestParam("id") Long id, @RequestParam("date") @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
+
+        if(this.spielService.setSpielDate(id,date)) {
+            return new ResponseEntity<>("Spieldatum wurde aktualisiert", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Datum konnte nicht aktualisiert werden",  HttpStatus.BAD_REQUEST);
+        }
     }
 
 
