@@ -81,37 +81,43 @@ public class UserService {
 
 
 
-    public boolean loginUser(Users user) {
-        List<Users> users = userRepository.findAll();
+    public boolean loginUser(String email, String passwort) {
+        List<Users> userList = userRepository.findAll();
+        if(this.userRepository.existsById(this.userRepository.findUserIdByEmail(email))) {
+            Long id = this.userRepository.findUserIdByEmail(email);
 
-        for (Users other : users) {
-            String sha256hex = Hashing.sha256()
-                    .hashString(user.getPasswort(), StandardCharsets.UTF_8)
-                    .toString();
-            if (other.equals(user)) {
-                if(this.userRepository.findByEmail(user.getPasswort()).equals(sha256hex)){
-                    user.setLoggedIn(true);
-                    userRepository.save(user);
-                    return true;
+            Users user = this.userRepository.getReferenceById(id);
+
+
+            for (Users other : userList) {
+
+                if (other.getEmail().equals(user.getEmail())) {
+                    String sha256hex = Hashing.sha256()
+                            .hashString(passwort, StandardCharsets.UTF_8)
+                            .toString();
+                    if (user.getPasswort().equals(sha256hex)) {
+                        user.setLoggedIn(true);
+                        userRepository.save(user);
+                        return true;
+                    }
+
                 }
-
             }
-        }
+            }
+
         return false;
     }
 
 
-    public boolean logUserOut(Users user) {
-        List<Users> users = userRepository.findAll();
-        for (Users other : users) {
-            if (other.equals(user)) {
-                if(user.isLoggedIn() == true) {
-                    user.setLoggedIn(false);
-                    userRepository.save(user);
-                    return true;
-                }
-            }
+    public boolean logUserOut(String email) {
+        Long id = this.userRepository.findUserIdByEmail(email);
+        Users user = this.userRepository.getReferenceById(id);
+        if(user.isLoggedIn()){
+            user.setLoggedIn(false);
+            return true;
         }
+
+
         return false;
     }
 

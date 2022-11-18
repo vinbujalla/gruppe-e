@@ -27,8 +27,7 @@ public class Users implements Serializable {
     }
 
 
-    @Column(name = "loggedIn")
-    @NotNull
+
     private boolean loggedIn;
 
     @NotNull
