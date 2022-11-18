@@ -4,29 +4,6 @@
     <p> </p>
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
 
-
-      <div class="form-group">
-        <label for="firstname">Vorname</label>
-        <input type="text" [(ngModel)]="user.vorname"
-               class="form-control"
-               id="firstname"
-               name="firstname"
-               placeholder="Vorname"
-               required #firstname="ngModel">
-      </div>
-      <div [hidden]="!firstname.pristine" class="alert alert-danger">Vorname eingeben!</div>
-
-      <div class="form-group">
-        <label for="lastname">Nachname</label>
-        <input type="text" [(ngModel)]="user.nachname"
-               class="form-control"
-               id="lastname"
-               name="lastname"
-               placeholder="Nachname"
-               required #lastname="ngModel">
-       </div>
-      <div [hidden]="!lastname.pristine" class="alert alert-danger">Nachname eingeben!</div>
-
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" [(ngModel)]="user.email"
@@ -36,17 +13,21 @@
                placeholder="Email"
                required #email="ngModel">
         </div>
-      <div [hidden]="!email.pristine" class="alert alert-danger">Email eingeben!</div>
+      <div [hidden]="!email.pristine" class="alert alert-danger">E-Mail eingeben!</div>
+
+
       <div class="form-group">
         <label for="password">Passwort</label>
         <input type="password" [(ngModel)]="user.passwort"
                class="form-control"
                id="password"
-               name="email"
+               name="password"
                placeholder="Passwort"
                required #password="ngModel">
        </div>
       <div [hidden]="!password.pristine" class="alert alert-danger">Passwort eingeben!</div>
+
+
       <button  type="submit" [disabled]="!loginForm.form.valid"
                class="btn btn-info">Bestätigen</button>
 
